@@ -4,14 +4,14 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
 
 
-import Home from './pages/Home';
+import BlogArticles from './ccmmss/BlogArticles';
 import Blogs from './pages/Blogs';
 import MyBlogs from './pages/MyBlogs';
 import About from './pages/About';
-import Navbar from './components/Navbar';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
-import Footer from './components/Footer';
+// import Navbar from './components/Navbar';
+import Login from './pages/Login/Login';
+import Signup from './pages/Signup/Signup';
+// import Footer from './components/Footer';
 
 
 function App() {
@@ -20,18 +20,18 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="pages">
           <Routes>
-            <Route path="/" exact element={user ? <Home /> : <Navigate to="/login" />} />
+            <Route path="/" exact element={!user ? <BlogArticles /> : <Navigate to="/login" />} />
             <Route path="/blogs" exact element={user ? <Blogs /> : <Navigate to="/login" />} />
             <Route path="/myblogs" exact element={user ? <MyBlogs /> : <Navigate to="/login" />} />
             <Route path="/about" exact element={user ? <About /> : <Navigate to="/login" />} />
-            <Route path="/login" exact element={!user ? <Login /> : <Navigate to="/" />} />
+            <Route path="/login" exact element={user ? <Login /> : <Navigate to="/" />} />
             <Route path="/signup" exact element={!user ? <Signup /> : <Navigate to="/" />} />
           </Routes>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </div>
   );

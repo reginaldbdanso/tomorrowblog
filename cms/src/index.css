@@ -207,7 +207,7 @@ form.signup, form.login {
 }
 
 .hero{
-  background-image: url(../src/magazine-3680549_1920.webp) !important;
+  /* background-image: url(../src/magazine-3680549_1920.webp) !important; */
   background-size: cover;
   position: relative;
 }

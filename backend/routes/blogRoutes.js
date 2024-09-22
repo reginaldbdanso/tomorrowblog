@@ -10,8 +10,6 @@ const {
     updateBlog
 } = require('../controllers/blogController');
 
-//require authentication for all routes
-router.use(requireAuth);
 
 // GET all Blogs
 router.get('/', getBlogs)
@@ -21,6 +19,9 @@ router.get('/user', getUserBlogs)
 
 //GET a single Blog
 router.get('/:id', getBlog)
+
+//require authentication for all routes below
+router.use(requireAuth);
 
 //POST a new Blog
 router.post('/', createBlog)
